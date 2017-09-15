@@ -1,8 +1,6 @@
 package Assistant;
 
-import Service.FileCurrencyRateProvider;
-import Service.RateConversionService;
-import Service.SecondRateConversionService;
+import Service.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -24,5 +22,10 @@ public class AppConfig {
     public SecondRateConversionService secondRateConversionService() {
         SecondRateConversionService rateConversionService = new SecondRateConversionService();
         return rateConversionService;
+    }
+
+    @Bean
+    public RoundPrecisionProvider roundPrecisionProvider(){
+        return new FixedPrecisionProvider();
     }
 }
