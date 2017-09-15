@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Date;
 
-public class RateConversionService {
+public class SecondRateConversionService {
 
     private CurrencyRateProvider rateProvider;
 
@@ -18,7 +18,7 @@ public class RateConversionService {
     public BigDecimal convertAmount(BigDecimal amount, String currency) {
         BigDecimal rate = rateProvider.getRate(currency, new Date());
         System.out.println("HashCode: " +hashCode());
-        System.out.println("Service.RateConversionService: Obliczam kwote");
+        System.out.println("Service.SecondRateConversionService: Obliczam kwote");
         BigDecimal result = amount.multiply(rate).setScale(2, RoundingMode.HALF_UP);
         return result;
     }

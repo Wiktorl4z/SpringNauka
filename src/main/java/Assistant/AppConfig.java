@@ -2,6 +2,7 @@ package Assistant;
 
 import Service.FileCurrencyRateProvider;
 import Service.RateConversionService;
+import Service.SecondRateConversionService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -16,7 +17,12 @@ public class AppConfig {
     @Bean
     public RateConversionService rateConversionService() {
         RateConversionService rateConversionService = new RateConversionService();
-        rateConversionService.setRateProvider(fileCurrencyRateProvider());
+        return rateConversionService;
+    }
+
+    @Bean
+    public SecondRateConversionService secondRateConversionService() {
+        SecondRateConversionService rateConversionService = new SecondRateConversionService();
         return rateConversionService;
     }
 }
