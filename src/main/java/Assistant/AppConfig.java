@@ -28,4 +28,9 @@ public class AppConfig {
     public RoundPrecisionProvider roundPrecisionProvider(){
         return new FixedPrecisionProvider();
     }
+
+    @Bean
+    public RoundPrecisionProvider roundJpyPrecisionProvider(){
+        return new JpyPrecisionProvider();
+    }
 }
