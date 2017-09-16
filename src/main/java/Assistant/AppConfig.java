@@ -4,7 +4,7 @@ import Service.*;
 import org.springframework.context.annotation.*;
 
 @Configuration // oznacza, ze beda tutaj komponenty springowe @Bean
-@PropertySource("classpath:app.properties")
+
 @Import(DatabaseConfig.class)
 public class AppConfig {
 
@@ -15,11 +15,9 @@ public class AppConfig {
     }
 
     @Bean
-
     public DatabaseCurrencyRateProvider dataBaseCurrencyRateProvider() {
         return new DatabaseCurrencyRateProvider();
     }
-
 
     @Bean
     public RateConversionService rateConversionService() {

@@ -19,4 +19,8 @@ public BigDecimal getRate(String currency, Date rateDate){
     System.out.println("Service.FileCurrencyRateProvider: Wczytano kursy z pliku lokalnego " + fileName);
     return BigDecimal.valueOf(4.25);
 }
+
+    public void getName() {
+
+    }
 }
