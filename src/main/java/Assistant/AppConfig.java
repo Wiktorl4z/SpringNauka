@@ -1,16 +1,25 @@
 package Assistant;
 
 import Service.*;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.*;
 
 @Configuration // oznacza, ze beda tutaj komponenty springowe @Bean
+@PropertySource("classpath:app.properties")
+@Import(DatabaseConfig.class)
 public class AppConfig {
 
     @Bean
+    @Primary
     public FileCurrencyRateProvider fileCurrencyRateProvider() {
         return new FileCurrencyRateProvider();
     }
+
+    @Bean
+
+    public DatabaseCurrencyRateProvider dataBaseCurrencyRateProvider() {
+        return new DatabaseCurrencyRateProvider();
+    }
+
 
     @Bean
     public RateConversionService rateConversionService() {

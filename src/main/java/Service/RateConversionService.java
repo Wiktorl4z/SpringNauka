@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -19,7 +21,9 @@ public class RateConversionService {
     @Autowired(required = false)
     private List<RoundPrecisionProvider> precisionProvider;
 
-    public BigDecimal convertAmount(BigDecimal amount, String currency) {
+    public BigDecimal convertAmount(BigDecimal amount, String currency) throws ParseException{
+        Date date = (new SimpleDateFormat("yyyy-mm-dd")).parse("2017-09-16");
+
         BigDecimal rate = rateProvider.getRate(currency, new Date());
         System.out.println("HashCode: " +hashCode());
         System.out.println("Service.RateConversionService: Obliczam kwote");
