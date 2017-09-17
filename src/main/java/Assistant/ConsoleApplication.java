@@ -9,6 +9,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import java.math.BigDecimal;
 import java.text.ParseException;
+import java.util.Date;
 
 public class ConsoleApplication {
 
@@ -23,8 +24,8 @@ public class ConsoleApplication {
         SecondRateConversionService secondService = context.getBean(SecondRateConversionService.class);
         secondService.convertAmount(BigDecimal.valueOf(123.00), "EUR");
 
- /*       DatabaseCurrencyRateProvider db = context.getBean(DatabaseCurrencyRateProvider.class);
-        db.getName();*/
+        DatabaseCurrencyRateProvider db = context.getBean(DatabaseCurrencyRateProvider.class);
+        db.getRate("Cze", new Date());
 
     }
 }

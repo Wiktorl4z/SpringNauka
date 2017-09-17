@@ -19,7 +19,7 @@ public class JdbcCurrencyRateDao implements CurrencyRateDao {
 
     @Autowired
     public void setDataSource(DataSource dataSource) {
-        this.jdbcTemplate = new JdbcTemplate(dataSource);
+        jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
     public BigDecimal getRate(String currency, Date rateDate) {
